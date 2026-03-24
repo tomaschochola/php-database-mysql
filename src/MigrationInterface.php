@@ -13,15 +13,22 @@
 
 declare(strict_types=1);
 
-namespace TomasChochola\Template\Library;
+namespace TomasChochola\Mysql;
+
+use NoDiscard;
+use Stringable;
 
 /**
  * @no-named-arguments
  */
-readonly class Lib
+interface MigrationInterface
 {
-    public function __invoke(): string
-    {
-        return static::class;
-    }
+    /**
+     * @return iterable<mixed, Stringable|string>
+     */
+    #[NoDiscard]
+    public function migrate(): iterable;
+
+    #[NoDiscard]
+    public function selector(): string;
 }

@@ -9,7 +9,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "TomasChochola\\Template\\Library\\": "./src"
+      "TomasChochola\\Mysql\\": "./src"
     }
   },
   "autoload-dev": {
@@ -26,24 +26,24 @@
     "process-timeout": 0,
     "sort-packages": true
   },
-  "description": "tomaschochola/php-template-library",
+  "description": "tomaschochola/php-mysql",
   "funding": [
     {
       "type": "github",
       "url": "https://github.com/sponsors/tomaschochola"
     }
   ],
-  "homepage": "https://github.com/tomaschochola/php-template-library",
+  "homepage": "https://github.com/tomaschochola/php-mysql",
   "keywords": [
     "tomaschochola",
     "TomasChochola",
     "Tomas Chochola",
     "Tomáš Chochola",
-    "php-template-library"
+    "php-mysql"
   ],
   "license": "CC-BY-ND-4.0",
   "minimum-stability": "dev",
-  "name": "tomaschochola/php-template-library",
+  "name": "tomaschochola/php-mysql",
   "prefer-stable": true,
   "readme": "./README.md",
   "repositories": [
@@ -59,7 +59,11 @@
     }
   ],
   "require": {
-    "php": "^8.5.0"
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*",
+    "php": "^8.5.0",
+    "psr/container": "^2.0",
+    "psr/log": "^3.0"
   },
   "require-dev": {
     "ext-intl": "*",
@@ -72,10 +76,10 @@
     "tomaschochola/php-tooling-phpstan-config": "^1.0@dev"
   },
   "support": {
-    "docs": "https://github.com/tomaschochola/php-template-library",
+    "docs": "https://github.com/tomaschochola/php-mysql",
     "email": "tomaschochola@tomaschochola.cz",
-    "issues": "https://github.com/tomaschochola/php-template-library/issues",
-    "source": "https://github.com/tomaschochola/php-template-library.git"
+    "issues": "https://github.com/tomaschochola/php-mysql/issues",
+    "source": "https://github.com/tomaschochola/php-mysql.git"
   },
   "type": "library"
 }
