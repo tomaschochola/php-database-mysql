@@ -13,11 +13,12 @@
 
 declare(strict_types=1);
 
-namespace TomasChochola\Mysql;
+namespace TomasChochola\Pdo\Mysql;
 
 use NoDiscard;
 use Pdo\Mysql;
 use Psr\Container\ContainerInterface;
+use TomasChochola\Pdo\PdoSettingsInterface;
 
 use function array_replace;
 use function assert;

@@ -13,11 +13,12 @@
 
 declare(strict_types=1);
 
-namespace TomasChochola\Mysql;
+namespace TomasChochola\Pdo\Mysql;
 
 use NoDiscard;
 use Override;
 use Psr\Container\ContainerInterface;
+use TomasChochola\Migrations\MigrationInterface;
 
 /**
  * @no-named-arguments
