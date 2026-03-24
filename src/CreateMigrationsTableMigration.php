@@ -17,7 +17,6 @@ namespace TomasChochola\Pdo\Mysql;
 
 use NoDiscard;
 use Override;
-use Psr\Container\ContainerInterface;
 use TomasChochola\Migrations\MigrationInterface;
 
 /**
@@ -25,13 +24,6 @@ use TomasChochola\Migrations\MigrationInterface;
  */
 readonly class CreateMigrationsTableMigration implements MigrationInterface
 {
-    public function __construct() {}
-
-    #[NoDiscard]
-    public static function inject(ContainerInterface $container): self
-    {
-        return new self();
-    }
 
     #[NoDiscard]
     #[Override]

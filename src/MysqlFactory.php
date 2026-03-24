@@ -17,7 +17,6 @@ namespace TomasChochola\Pdo\Mysql;
 
 use NoDiscard;
 use Pdo\Mysql;
-use Psr\Container\ContainerInterface;
 use TomasChochola\Pdo\PdoSettingsInterface;
 
 use function array_replace;
@@ -29,25 +28,6 @@ use function implode;
  */
 readonly class MysqlFactory
 {
-    public function __construct() {}
-
-    #[NoDiscard]
-    public static function inject(ContainerInterface $container): self
-    {
-        return new self();
-    }
-
-    #[NoDiscard]
-    public static function produce(ContainerInterface $container): Mysql
-    {
-        $factory = $container->get(self::class);
-        $settings = $container->get(PdoSettingsInterface::class);
-
-        assert($factory instanceof self);
-        assert($settings instanceof PdoSettingsInterface);
-
-        return $factory->create($settings);
-    }
 
     #[NoDiscard]
     public function create(PdoSettingsInterface $settings): Mysql

@@ -16,10 +16,7 @@ declare(strict_types=1);
 namespace TomasChochola\Pdo\Mysql;
 
 use NoDiscard;
-use Psr\Container\ContainerInterface;
 use TomasChochola\Pdo\PdoQuery;
-
-use function assert;
 
 /**
  * @no-named-arguments
@@ -31,16 +28,6 @@ readonly class MysqlProbe
     public function __construct(PdoQuery $query)
     {
         $this->query = $query;
-    }
-
-    #[NoDiscard]
-    public static function inject(ContainerInterface $container): self
-    {
-        $query = $container->get(PdoQuery::class);
-
-        assert($query instanceof PdoQuery);
-
-        return new self($query);
     }
 
     #[NoDiscard]
