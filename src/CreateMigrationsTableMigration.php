@@ -24,7 +24,6 @@ use TomasChochola\Migrations\MigrationInterface;
  */
 readonly class CreateMigrationsTableMigration implements MigrationInterface
 {
-
     #[NoDiscard]
     #[Override]
     public function migrate(): iterable

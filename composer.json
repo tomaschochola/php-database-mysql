@@ -56,13 +56,22 @@
       "no-api": true,
       "type": "git",
       "url": "https://github.com/tomaschochola/php-tooling-php-cs-fixer-config.git"
+    },
+    {
+      "no-api": true,
+      "type": "git",
+      "url": "https://github.com/tomaschochola/php-migrations.git"
+    },
+    {
+      "no-api": true,
+      "type": "git",
+      "url": "https://github.com/tomaschochola/php-pdo.git"
     }
   ],
   "require": {
     "ext-pdo": "*",
     "ext-pdo_mysql": "*",
     "php": "^8.5.0",
-    "psr/container": "^2.0",
     "tomaschochola/php-migrations": "^1.0@dev",
     "tomaschochola/php-pdo": "^1.0@dev"
   },
