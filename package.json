@@ -6,7 +6,7 @@
   },
   "bugs": {
     "email": "tomaschochola@tomaschochola.cz",
-    "url": "https://github.com/tomaschochola/php-pdo-mysql/issues"
+    "url": "https://github.com/tomaschochola/php-database-mysql/issues"
   },
   "contributors": [
     {
@@ -15,7 +15,7 @@
       "url": "https://github.com/tomaschochola"
     }
   ],
-  "description": "@tomaschochola/php-pdo-mysql",
+  "description": "@tomaschochola/php-database-mysql",
   "devDependencies": {
     "@tomaschochola/ts-tooling-eslint-config": "github:tomaschochola/ts-tooling-eslint-config#1.x",
     "@tomaschochola/ts-tooling-prettier-config": "github:tomaschochola/ts-tooling-prettier-config#1.x"
@@ -24,17 +24,17 @@
     "type": "github",
     "url": "https://github.com/sponsors/tomaschochola"
   },
-  "homepage": "https://github.com/tomaschochola/php-pdo-mysql",
+  "homepage": "https://github.com/tomaschochola/php-database-mysql",
   "keywords": [
     "tomaschochola",
     "TomasChochola",
     "Tomas Chochola",
     "Tomáš Chochola",
-    "php-pdo-mysql"
+    "php-database-mysql"
   ],
   "license": "CC-BY-ND-4.0",
-  "name": "@tomaschochola/php-pdo-mysql",
-  "repository": "github:tomaschochola/php-pdo-mysql",
+  "name": "@tomaschochola/php-database-mysql",
+  "repository": "github:tomaschochola/php-database-mysql",
   "sideEffects": false,
   "type": "module"
 }

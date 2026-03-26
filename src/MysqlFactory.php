@@ -17,7 +17,6 @@ namespace TomasChochola\Pdo\Mysql;
 
 use NoDiscard;
 use Pdo\Mysql;
-use TomasChochola\Pdo\PdoSettingsInterface;
 
 use function array_replace;
 use function implode;
@@ -28,7 +27,7 @@ use function implode;
 readonly class MysqlFactory
 {
     #[NoDiscard]
-    public function create(PdoSettingsInterface $settings): Mysql
+    public function create(MysqlSettingsInterface $settings): Mysql
     {
         $dsn = [];
 

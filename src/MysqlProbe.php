@@ -16,16 +16,16 @@ declare(strict_types=1);
 namespace TomasChochola\Pdo\Mysql;
 
 use NoDiscard;
-use TomasChochola\Pdo\PdoQuery;
+use TomasChochola\Pdo\QueryInterface;
 
 /**
  * @no-named-arguments
  */
 readonly class MysqlProbe
 {
-    public readonly PdoQuery $query;
+    public readonly QueryInterface $query;
 
-    public function __construct(PdoQuery $query)
+    public function __construct(QueryInterface $query)
     {
         $this->query = $query;
     }
@@ -41,7 +41,7 @@ readonly class MysqlProbe
                     AND `table_name` = ?
                     AND `column_name` = ?
             )
-            SQL, [$schema, $table, $column], );
+            SQL, [$schema, $table, $column]);
     }
 
     #[NoDiscard]
@@ -56,7 +56,7 @@ readonly class MysqlProbe
                     AND `constraint_name` = ?
                     AND `constraint_type` = 'FOREIGN KEY'
             )
-            SQL, [$schema, $table, $foreignKey], );
+            SQL, [$schema, $table, $foreignKey]);
     }
 
     #[NoDiscard]
@@ -70,7 +70,7 @@ readonly class MysqlProbe
                     AND `table_name` = ?
                     AND `index_name` = ?
             )
-            SQL, [$schema, $table, $index], );
+            SQL, [$schema, $table, $index]);
     }
 
     #[NoDiscard]
@@ -82,7 +82,7 @@ readonly class MysqlProbe
                 FROM `information_schema`.`schemata`
                 WHERE `schema_name` = ?
             )
-            SQL, [$schema], );
+            SQL, [$schema]);
     }
 
     #[NoDiscard]
@@ -95,6 +95,6 @@ readonly class MysqlProbe
                 WHERE `table_schema` = COALESCE(?, DATABASE())
                     AND `table_name` = ?
             )
-            SQL, [$schema, $table], );
+            SQL, [$schema, $table]);
     }
 }
