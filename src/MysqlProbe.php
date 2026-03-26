@@ -16,12 +16,14 @@ declare(strict_types=1);
 namespace TomasChochola\Pdo\Mysql;
 
 use NoDiscard;
+use Override;
+use TomasChochola\Pdo\ProbeInterface;
 use TomasChochola\Pdo\QueryInterface;
 
 /**
  * @no-named-arguments
  */
-readonly class MysqlProbe
+readonly class MysqlProbe implements ProbeInterface
 {
     public readonly QueryInterface $query;
 
@@ -31,6 +33,7 @@ readonly class MysqlProbe
     }
 
     #[NoDiscard]
+    #[Override]
     public function column(string $table, string $column, string|null $schema = null): bool
     {
         return $this->query->bool(<<<'SQL'
@@ -45,6 +48,7 @@ readonly class MysqlProbe
     }
 
     #[NoDiscard]
+    #[Override]
     public function foreign(string $table, string $foreignKey, string|null $schema = null): bool
     {
         return $this->query->bool(<<<'SQL'
@@ -60,6 +64,7 @@ readonly class MysqlProbe
     }
 
     #[NoDiscard]
+    #[Override]
     public function index(string $table, string $index, string|null $schema = null): bool
     {
         return $this->query->bool(<<<'SQL'
@@ -74,6 +79,7 @@ readonly class MysqlProbe
     }
 
     #[NoDiscard]
+    #[Override]
     public function schema(string $schema): bool
     {
         return $this->query->bool(<<<'SQL'
@@ -86,6 +92,7 @@ readonly class MysqlProbe
     }
 
     #[NoDiscard]
+    #[Override]
     public function table(string $table, string|null $schema = null): bool
     {
         return $this->query->bool(<<<'SQL'

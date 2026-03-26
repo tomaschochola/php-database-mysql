@@ -19,6 +19,7 @@ use NoDiscard;
 use Override;
 use PDO;
 use PDOStatement;
+use Pdo\Mysql;
 use Stringable;
 use TomasChochola\Pdo\QueryInterface;
 use UnexpectedValueException;
@@ -34,9 +35,9 @@ use function is_string;
  */
 readonly class MysqlQuery implements QueryInterface
 {
-    public readonly PDO $pdo;
+    public readonly Mysql $pdo;
 
-    public function __construct(PDO $pdo)
+    public function __construct(Mysql $pdo)
     {
         $this->pdo = $pdo;
     }
