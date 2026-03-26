@@ -36,7 +36,7 @@ readonly class MysqlLocker implements LockerInterface
 
     #[NoDiscard]
     #[Override]
-    public function lock(string $name, int $wait = 3600): LockInterface
+    public function lock(string $name, int $wait = 3_600): LockInterface
     {
         $ok = $this->query->bool('SELECT GET_LOCK(?, ?)', [$name, $wait]);
 

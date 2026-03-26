@@ -52,7 +52,7 @@ readonly class MysqlQuery implements QueryInterface
     }
 
     /**
-     * @param array<int|string, mixed> $params
+     * @param array<mixed, mixed> $params
      */
     #[NoDiscard]
     #[Override]
@@ -100,7 +100,7 @@ readonly class MysqlQuery implements QueryInterface
     }
 
     /**
-     * @param array<int|string, mixed> $params
+     * @param array<mixed, mixed> $params
      */
     #[NoDiscard]
     #[Override]
@@ -122,7 +122,7 @@ readonly class MysqlQuery implements QueryInterface
     }
 
     /**
-     * @param array<int|string, mixed> $params
+     * @param array<mixed, mixed> $params
      */
     #[NoDiscard]
     #[Override]
@@ -144,7 +144,7 @@ readonly class MysqlQuery implements QueryInterface
     }
 
     /**
-     * @param array<int|string, mixed> $params
+     * @param array<mixed, mixed> $params
      */
     #[NoDiscard]
     #[Override]
@@ -183,7 +183,7 @@ readonly class MysqlQuery implements QueryInterface
 
     /**
      * @template TObject of object
-     * @param array<int|string, mixed> $params
+     * @param array<mixed, mixed> $params
      * @param class-string<TObject> $class
      * @return TObject|null
      */
@@ -208,7 +208,7 @@ readonly class MysqlQuery implements QueryInterface
 
     /**
      * @template TObject of object
-     * @param array<int|string, mixed> $params
+     * @param array<mixed, mixed> $params
      * @param class-string<TObject> $class
      * @return iterable<mixed, TObject>
      */
@@ -242,7 +242,7 @@ readonly class MysqlQuery implements QueryInterface
     }
 
     /**
-     * @param array<int|string, mixed> $params
+     * @param array<mixed, mixed> $params
      */
     #[Override]
     public function run(Stringable|string $sql, array $params = []): void
@@ -261,7 +261,7 @@ readonly class MysqlQuery implements QueryInterface
     }
 
     /**
-     * @param array<int|string, mixed> $params
+     * @param array<mixed, mixed> $params
      */
     #[NoDiscard]
     #[Override]
