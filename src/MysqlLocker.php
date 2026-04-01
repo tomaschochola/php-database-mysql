@@ -27,7 +27,7 @@ use UnexpectedValueException;
  */
 readonly class MysqlLocker implements LockerInterface
 {
-    public readonly QueryInterface $query;
+    private readonly QueryInterface $query;
 
     public function __construct(QueryInterface $query)
     {

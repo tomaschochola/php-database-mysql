@@ -25,7 +25,7 @@ use TomasChochola\Pdo\QueryInterface;
  */
 readonly class MysqlProbe implements ProbeInterface
 {
-    public readonly QueryInterface $query;
+    private readonly QueryInterface $query;
 
     public function __construct(QueryInterface $query)
     {

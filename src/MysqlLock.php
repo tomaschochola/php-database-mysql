@@ -25,9 +25,9 @@ use UnexpectedValueException;
  */
 readonly class MysqlLock implements LockInterface
 {
-    public readonly string $name;
+    private readonly string $name;
 
-    public readonly QueryInterface $query;
+    private readonly QueryInterface $query;
 
     public function __construct(QueryInterface $query, string $name)
     {

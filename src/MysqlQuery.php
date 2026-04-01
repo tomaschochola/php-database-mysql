@@ -35,17 +35,17 @@ use function is_string;
  */
 readonly class MysqlQuery implements QueryInterface
 {
-    public readonly Mysql $pdo;
+    private readonly Mysql $mysql;
 
-    public function __construct(Mysql $pdo)
+    public function __construct(Mysql $mysql)
     {
-        $this->pdo = $pdo;
+        $this->mysql = $mysql;
     }
 
     #[Override]
     public function begin(): void
     {
-        $ok = $this->pdo->beginTransaction();
+        $ok = $this->mysql->beginTransaction();
 
         if ($ok !== true) {
             throw new UnexpectedValueException('beginTransaction');
@@ -59,7 +59,7 @@ readonly class MysqlQuery implements QueryInterface
     #[Override]
     public function bool(Stringable|string $sql, array $params = []): bool
     {
-        $stm = $this->pdo->prepare((string) $sql);
+        $stm = $this->mysql->prepare((string) $sql);
 
         if (!$stm instanceof PDOStatement) {
             throw new UnexpectedValueException('prepare');
@@ -93,7 +93,7 @@ readonly class MysqlQuery implements QueryInterface
     #[Override]
     public function commit(): void
     {
-        $ok = $this->pdo->commit();
+        $ok = $this->mysql->commit();
 
         if ($ok !== true) {
             throw new UnexpectedValueException('commit');
@@ -107,7 +107,7 @@ readonly class MysqlQuery implements QueryInterface
     #[Override]
     public function execute(Stringable|string $sql, array $params = []): int
     {
-        $stm = $this->pdo->prepare((string) $sql);
+        $stm = $this->mysql->prepare((string) $sql);
 
         if (!$stm instanceof PDOStatement) {
             throw new UnexpectedValueException('prepare');
@@ -135,7 +135,7 @@ readonly class MysqlQuery implements QueryInterface
             throw new UnexpectedValueException('rowCount');
         }
 
-        $id = $this->pdo->lastInsertId();
+        $id = $this->mysql->lastInsertId();
 
         if (!is_string($id)) {
             throw new UnexpectedValueException('lastInsertId');
@@ -151,7 +151,7 @@ readonly class MysqlQuery implements QueryInterface
     #[Override]
     public function int(Stringable|string $sql, array $params = []): int
     {
-        $stm = $this->pdo->prepare((string) $sql);
+        $stm = $this->mysql->prepare((string) $sql);
 
         if (!$stm instanceof PDOStatement) {
             throw new UnexpectedValueException('prepare');
@@ -192,7 +192,7 @@ readonly class MysqlQuery implements QueryInterface
     #[Override]
     public function object(string $sql, array $params = [], string $class = stdClass::class): object|null
     {
-        $stm = $this->pdo->prepare($sql);
+        $stm = $this->mysql->prepare($sql);
 
         if (!$stm instanceof PDOStatement) {
             throw new UnexpectedValueException('prepare');
@@ -217,7 +217,7 @@ readonly class MysqlQuery implements QueryInterface
     #[Override]
     public function objects(string $sql, array $params = [], string $class = stdClass::class): iterable
     {
-        $stm = $this->pdo->prepare($sql);
+        $stm = $this->mysql->prepare($sql);
 
         if (!$stm instanceof PDOStatement) {
             throw new UnexpectedValueException('prepare');
@@ -235,7 +235,7 @@ readonly class MysqlQuery implements QueryInterface
     #[Override]
     public function rollback(): void
     {
-        $ok = $this->pdo->rollBack();
+        $ok = $this->mysql->rollBack();
 
         if ($ok !== true) {
             throw new UnexpectedValueException('rollBack');
@@ -248,7 +248,7 @@ readonly class MysqlQuery implements QueryInterface
     #[Override]
     public function run(Stringable|string $sql, array $params = []): void
     {
-        $stm = $this->pdo->prepare((string) $sql);
+        $stm = $this->mysql->prepare((string) $sql);
 
         if (!$stm instanceof PDOStatement) {
             throw new UnexpectedValueException('prepare');
@@ -268,7 +268,7 @@ readonly class MysqlQuery implements QueryInterface
     #[Override]
     public function string(Stringable|string $sql, array $params = []): string
     {
-        $stm = $this->pdo->prepare((string) $sql);
+        $stm = $this->mysql->prepare((string) $sql);
 
         if (!$stm instanceof PDOStatement) {
             throw new UnexpectedValueException('prepare');
