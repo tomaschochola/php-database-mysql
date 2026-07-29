@@ -25,9 +25,9 @@ use UnexpectedValueException;
  */
 readonly class MysqlLock implements LockInterface
 {
-    private readonly string $name;
+    private string $name;
 
-    private readonly QueryInterface $query;
+    private QueryInterface $query;
 
     public function __construct(QueryInterface $query, string $name)
     {
@@ -35,7 +35,7 @@ readonly class MysqlLock implements LockInterface
         $this->name = $name;
     }
 
-    #[Override]
+    #[Override()]
     public function unlock(): void
     {
         $ok = $this->query->bool('SELECT RELEASE_LOCK(?)', [$this->name]);

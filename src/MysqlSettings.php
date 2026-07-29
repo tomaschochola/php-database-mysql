@@ -23,26 +23,26 @@ use Override;
  */
 readonly class MysqlSettings implements MysqlSettingsInterface
 {
-    #[Override]
-    public readonly string $dbname;
+    #[Override()]
+    public string $dbname;
 
-    #[Override]
-    public readonly string $host;
+    #[Override()]
+    public string $host;
 
-    #[Override]
-    public readonly array $options;
+    #[Override()]
+    public array $options;
 
-    #[Override]
-    public readonly string $password;
+    #[Override()]
+    public string $password;
 
-    #[Override]
-    public readonly string $port;
+    #[Override()]
+    public string $port;
 
-    #[Override]
-    public readonly string $socket;
+    #[Override()]
+    public string $socket;
 
-    #[Override]
-    public readonly string $username;
+    #[Override()]
+    public string $username;
 
     /**
      * @param array<mixed, mixed> $options
@@ -58,8 +58,8 @@ readonly class MysqlSettings implements MysqlSettingsInterface
         $this->options = $options;
     }
 
-    #[NoDiscard]
-    #[Override]
+    #[NoDiscard()]
+    #[Override()]
     public function clone(array $with): static
     {
         return clone ($this, $with);

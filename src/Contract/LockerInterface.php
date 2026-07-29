@@ -13,25 +13,18 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace TomasChochola\Pdo;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
-use PHPUnit\Framework\Attributes\Small;
-use PHPUnit\Framework\Attributes\Test;
+use NoDiscard;
 
 /**
- * @internal
- *
  * @no-named-arguments
  */
-#[CoversNothing()]
-#[Small()]
-class StubTest extends TestCase
+interface LockerInterface
 {
-    #[DoesNotPerformAssertions()]
-    #[Test()]
-    public function test(): void
-    {
-    }
+    #[NoDiscard()]
+    public function lock(string $name, int $wait = 3_600): LockInterface;
+
+    #[NoDiscard()]
+    public function try(string $name, int $wait = 0): LockInterface | null;
 }

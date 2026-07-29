@@ -35,14 +35,14 @@ use function is_string;
  */
 readonly class MysqlQuery implements QueryInterface
 {
-    private readonly Mysql $mysql;
+    private Mysql $mysql;
 
     public function __construct(Mysql $mysql)
     {
         $this->mysql = $mysql;
     }
 
-    #[Override]
+    #[Override()]
     public function begin(): void
     {
         $ok = $this->mysql->beginTransaction();
@@ -55,9 +55,9 @@ readonly class MysqlQuery implements QueryInterface
     /**
      * @param array<mixed, mixed> $params
      */
-    #[NoDiscard]
-    #[Override]
-    public function bool(Stringable|string $sql, array $params = []): bool
+    #[NoDiscard()]
+    #[Override()]
+    public function bool(Stringable | string $sql, array $params = []): bool
     {
         $stm = $this->mysql->prepare((string) $sql);
 
@@ -90,7 +90,7 @@ readonly class MysqlQuery implements QueryInterface
         return $bool;
     }
 
-    #[Override]
+    #[Override()]
     public function commit(): void
     {
         $ok = $this->mysql->commit();
@@ -103,9 +103,9 @@ readonly class MysqlQuery implements QueryInterface
     /**
      * @param array<mixed, mixed> $params
      */
-    #[NoDiscard]
-    #[Override]
-    public function execute(Stringable|string $sql, array $params = []): int
+    #[NoDiscard()]
+    #[Override()]
+    public function execute(Stringable | string $sql, array $params = []): int
     {
         $stm = $this->mysql->prepare((string) $sql);
 
@@ -125,8 +125,8 @@ readonly class MysqlQuery implements QueryInterface
     /**
      * @param array<mixed, mixed> $params
      */
-    #[NoDiscard]
-    #[Override]
+    #[NoDiscard()]
+    #[Override()]
     public function insert(string $sql, array $params = []): string
     {
         $count = $this->execute($sql, $params);
@@ -147,9 +147,9 @@ readonly class MysqlQuery implements QueryInterface
     /**
      * @param array<mixed, mixed> $params
      */
-    #[NoDiscard]
-    #[Override]
-    public function int(Stringable|string $sql, array $params = []): int
+    #[NoDiscard()]
+    #[Override()]
+    public function int(Stringable | string $sql, array $params = []): int
     {
         $stm = $this->mysql->prepare((string) $sql);
 
@@ -184,13 +184,15 @@ readonly class MysqlQuery implements QueryInterface
 
     /**
      * @template TObject of object
+     *
      * @param array<mixed, mixed> $params
      * @param class-string<TObject> $class
+     *
      * @return TObject|null
      */
-    #[NoDiscard]
-    #[Override]
-    public function object(string $sql, array $params = [], string $class = stdClass::class): object|null
+    #[NoDiscard()]
+    #[Override()]
+    public function object(string $sql, array $params = [], string $class = stdClass::class): object | null
     {
         $stm = $this->mysql->prepare($sql);
 
@@ -209,12 +211,14 @@ readonly class MysqlQuery implements QueryInterface
 
     /**
      * @template TObject of object
+     *
      * @param array<mixed, mixed> $params
      * @param class-string<TObject> $class
+     *
      * @return iterable<mixed, TObject>
      */
-    #[NoDiscard]
-    #[Override]
+    #[NoDiscard()]
+    #[Override()]
     public function objects(string $sql, array $params = [], string $class = stdClass::class): iterable
     {
         $stm = $this->mysql->prepare($sql);
@@ -232,7 +236,7 @@ readonly class MysqlQuery implements QueryInterface
         yield from self::many($stm, $class);
     }
 
-    #[Override]
+    #[Override()]
     public function rollback(): void
     {
         $ok = $this->mysql->rollBack();
@@ -245,8 +249,8 @@ readonly class MysqlQuery implements QueryInterface
     /**
      * @param array<mixed, mixed> $params
      */
-    #[Override]
-    public function run(Stringable|string $sql, array $params = []): void
+    #[Override()]
+    public function run(Stringable | string $sql, array $params = []): void
     {
         $stm = $this->mysql->prepare((string) $sql);
 
@@ -264,9 +268,9 @@ readonly class MysqlQuery implements QueryInterface
     /**
      * @param array<mixed, mixed> $params
      */
-    #[NoDiscard]
-    #[Override]
-    public function string(Stringable|string $sql, array $params = []): string
+    #[NoDiscard()]
+    #[Override()]
+    public function string(Stringable | string $sql, array $params = []): string
     {
         $stm = $this->mysql->prepare((string) $sql);
 
@@ -301,10 +305,12 @@ readonly class MysqlQuery implements QueryInterface
 
     /**
      * @template TObject of object
+     *
      * @param class-string<TObject> $class
+     *
      * @return iterable<mixed, TObject>
      */
-    #[NoDiscard]
+    #[NoDiscard()]
     private static function many(PDOStatement $stm, string $class): iterable
     {
         while (true) {
@@ -320,11 +326,13 @@ readonly class MysqlQuery implements QueryInterface
 
     /**
      * @template TObject of object
+     *
      * @param class-string<TObject> $class
+     *
      * @return TObject|null
      */
-    #[NoDiscard]
-    private static function single(PDOStatement $stm, string $class): object|null
+    #[NoDiscard()]
+    private static function single(PDOStatement $stm, string $class): object | null
     {
         $object = $stm->fetchObject($class);
 

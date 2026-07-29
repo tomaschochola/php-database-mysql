@@ -32,7 +32,7 @@ readonly class MysqlSettingsFactory
     /**
      * @param array<mixed, mixed> $options
      */
-    #[NoDiscard]
+    #[NoDiscard()]
     public function create(string $host, string $port, string $dbname, string $socket, string $username, string $password, array $options): MysqlSettings
     {
         return new MysqlSettings($host, $port, $dbname, $socket, $username, $password, $options);
@@ -41,7 +41,7 @@ readonly class MysqlSettingsFactory
     /**
      * @param array<mixed, mixed> $settings
      */
-    #[NoDiscard]
+    #[NoDiscard()]
     public function createFrom(array $settings): MysqlSettings
     {
         if (!isset($settings['host']) || !is_string($settings['host'])) {
@@ -79,7 +79,6 @@ readonly class MysqlSettingsFactory
         $username = $settings['username'];
         $password = $settings['password'];
         $options = $settings['options'];
-
         $password = file_get_contents($password);
 
         if (!is_string($password)) {

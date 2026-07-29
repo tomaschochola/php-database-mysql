@@ -42,6 +42,6 @@ interface MysqlSettingsInterface
     /**
      * @param array<mixed, mixed> $with
      */
-    #[NoDiscard]
+    #[NoDiscard()]
     public function clone(array $with): static;
 }

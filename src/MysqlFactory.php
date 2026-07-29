@@ -26,7 +26,7 @@ use function implode;
  */
 readonly class MysqlFactory
 {
-    #[NoDiscard]
+    #[NoDiscard()]
     public function create(MysqlSettingsInterface $settings): Mysql
     {
         $dsn = [];

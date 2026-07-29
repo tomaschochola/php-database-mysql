@@ -27,15 +27,15 @@ use UnexpectedValueException;
  */
 readonly class MysqlLocker implements LockerInterface
 {
-    private readonly QueryInterface $query;
+    private QueryInterface $query;
 
     public function __construct(QueryInterface $query)
     {
         $this->query = $query;
     }
 
-    #[NoDiscard]
-    #[Override]
+    #[NoDiscard()]
+    #[Override()]
     public function lock(string $name, int $wait = 3_600): LockInterface
     {
         $ok = $this->query->bool('SELECT GET_LOCK(?, ?)', [$name, $wait]);
@@ -47,9 +47,9 @@ readonly class MysqlLocker implements LockerInterface
         return new MysqlLock($this->query, $name);
     }
 
-    #[NoDiscard]
-    #[Override]
-    public function try(string $name, int $wait = 0): LockInterface|null
+    #[NoDiscard()]
+    #[Override()]
+    public function try(string $name, int $wait = 0): LockInterface | null
     {
         $ok = $this->query->bool('SELECT GET_LOCK(?, ?)', [$name, $wait]);
 
