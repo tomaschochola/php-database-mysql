@@ -46,7 +46,6 @@
   "minimum-stability": "dev",
   "name": "tomaschochola/php-database-mysql",
   "prefer-stable": true,
-  "readme": "./README.md",
   "repositories": [
     {
       "no-api": true,
