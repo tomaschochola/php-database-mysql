@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eacf805cdb520b0ae460d0e579e119ad",
+    "content-hash": "62e43bd8126a72080edfe2ac9003a372",
     "packages": [],
     "packages-dev": [
         {
@@ -6630,7 +6630,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
         "roave/security-advisories": 20,
         "tomaschochola/tooling-php-cs-fixer": 20,
