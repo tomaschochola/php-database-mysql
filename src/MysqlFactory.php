@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace TomasChochola\Pdo\Mysql;
+namespace TomasChochola\Database\Mysql;
 
 use NoDiscard;
 use Pdo\Mysql;

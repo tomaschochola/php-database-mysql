@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace TomasChochola\Pdo\Mysql;
+namespace TomasChochola\Database\Mysql;
 
 use NoDiscard;
 use Override;
@@ -21,7 +21,7 @@ use PDO;
 use PDOStatement;
 use Pdo\Mysql;
 use Stringable;
-use TomasChochola\Pdo\QueryInterface;
+use TomasChochola\Database\Mysql\Contract\QueryInterface;
 use UnexpectedValueException;
 use stdClass;
 

@@ -9,8 +9,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "TomasChochola\\Pdo\\Mysql\\": "src/",
-      "TomasChochola\\Pdo\\": "src/Contract/"
+      "TomasChochola\\Database\\Mysql\\": "src/"
     }
   },
   "autoload-dev": {

@@ -13,11 +13,11 @@
 
 declare(strict_types=1);
 
-namespace TomasChochola\Pdo\Mysql;
+namespace TomasChochola\Database\Mysql;
 
 use Override;
-use TomasChochola\Pdo\LockInterface;
-use TomasChochola\Pdo\QueryInterface;
+use TomasChochola\Database\Mysql\Contract\LockInterface;
+use TomasChochola\Database\Mysql\Contract\QueryInterface;
 use UnexpectedValueException;
 
 /**

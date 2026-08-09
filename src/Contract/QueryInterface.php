@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace TomasChochola\Pdo;
+namespace TomasChochola\Database\Mysql\Contract;
 
 use NoDiscard;
 use Stringable;
